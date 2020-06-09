@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou2.mapper.UserMapper">
+    <select id="getUserList" resultType="User">
+    select * from `user`
+</select>
+    <select id="getUser" parameterType="int" resultType="com.zhou2.pojo.User">
+        select * from `user` where id = #{id}
+    </select>
+    <insert id="addUser" parameterType="com.zhou2.pojo.User">
+        insert into `user` (`id`,`name`,`pwd`) values(#{id},#{name},#{pwd})
+    </insert>
+    <insert id="addUser2" parameterType="map">
+        insert into `user` (`id`,`name`,`pwd`) values(#{idd},#{namee},#{pwdd})
+    </insert>
+    <update id="updateUser" parameterType="com.zhou2.pojo.User">
+        update `user` set `name`=#{name},`pwd`=#{pwd} where `id` = #{id}
+    </update>
+    <delete id="deleteUser" parameterType="int">
+        delete from `user` where id = #{id}
+    </delete>
+</mapper>
